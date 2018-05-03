@@ -1,0 +1,23 @@
+{
+  "name": "tfd-fc-jnbank",
+  "version": "1.0.0",
+  "description": "Withholding Service of JNBank for FuRong Financial Leasing Co.,Ltd",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/furongleasing/tfd-fc-jnbank.git"
+  },
+  "author": "FuRong Financial Leasing Co.,Ltd IT Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/furongleasing/tfd-fc-jnbank/issues"
+  },
+  "homepage": "https://gitlab.com/furongleasing/tfd-fc-jnbank#README",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "mocha": "^5.1.1"
+  }
+}
