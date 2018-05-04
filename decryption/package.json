@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "assert": "^1.4.1",
+    "crypto": "^1.0.1",
+    "line-reader": "^0.4.0",
+    "mongodb": "^3.0.7"
+  }
+}
