@@ -1,21 +1,32 @@
-第三方代扣服务API
-主要流程如下
-场景1 - 签约校准
-场景2 - 代扣申请和处理
-场景3 - 代扣结果批处理查询
-业务逻辑：
-所有 request,response报文以xml形式传递，并加密
-功能模块化
-加密解密：utils/aesutil.js
+### 主要流程如下
+- 场景1 - 签约校准
+- 场景2 - 代扣申请和处理
+- 场景3 - 代扣结果批处理查询
+#### 业务逻辑：
+
+---
+
+- 所有 request,response报文以xml形式传递，并加密
+#### 功能模块化
+- 加密解密：utils/aesutil.js
+
+---
+
+
+```
 Usage:
 
 const aesutil = require('../utils/aesutil');
 Let encryption = aesutil.decrypt(data);
 let decryption = aesutil.decrypt(encryption);
-插入数据库：utils/csv_parse.js
-路由：
-Express 框架，所有银行发起的request由 handler处理，
-根据不同的transcode和opertype(或dealtype)执行不同的业务代码。
+```
+
+- 插入数据库：utils/csv_parse.js
+- 路由：
+###### Express 框架，所有银行发起的request由 handler处理，
+###### 根据不同的transcode和opertype(或dealtype)执行不同的业务代码。
+
+```
 Usage:
 Add a routing path:
 // routes/index.js
@@ -73,14 +84,25 @@ let xml = convert(
         }]
     }
 );
-xml-js :convert between js object and xml text
+```
+
+#### 第三方模块：
+- xml-js :
+###### - convert between js object and xml text
+
+```
 API reference:
 const xml2json = require('xml-js');
 result = cxml2json.js2xml(js, options);     // to convert javascript object to xml text
 result = xml2json.json2xml(json, options); // to convert json text to xml text
 result = xml2json.xml2js(xml, options);    // to convert xml text to javascript object
 result = xml2json.xml2json(xml, options);  // to convert xml text to json text
-csvtojson:a csv parse to convert csv(from a csv file or string or Asynchronously process each line from csv url) to json object or columnn arrays.
+```
+
+- csvtojson:
+###### - a csv parse to convert csv(from a csv file or string or Asynchronously process each line from csv url) to json object or columnn arrays.
+
+```
 Example:
 // convert from a csv file
 const csv = require('csvtojson');
@@ -89,7 +111,12 @@ csv()
     .then((jsonObj) => {
         console.log(jsonObj);     
     });
-eventporxy: 利用事件机制处理复杂的业务逻辑； 循环发起request
+```
+
+- eventporxy:
+###### 利用事件机制处理复杂的业务逻辑； 循环发起request
+
+```
 Example:
 // /*
 //  * 模拟第三方发起request
@@ -140,3 +167,4 @@ for (let currpage = 0; currpage < totalpagenum; currpage++) {
         }
     });
 }
+```
